@@ -94,6 +94,9 @@ function SetDay(month, Year) {
 
 document.querySelector(".arrow").addEventListener("click", (e) => {
     e.preventDefault();
+    AgeDay.textContent = "--";
+    AgeMonth.textContent = "--";
+    AgeYear.textContent = "--";
     validateInputs();
 
 })
@@ -228,23 +231,43 @@ function validateInputs() {
     else if (BirthDate.YearNumber > CurrentDate.Cyear) {
         SetError(Year, "Must be in the past");
     }
-    else if(BirthDate.YearNumber == CurrentDate.Cyear){
+     else if(BirthDate.YearNumber == CurrentDate.Cyear){
         if(BirthDate.MonthNumber > CurrentDate.Cmonth){
             SetError(Year, "Must be in the past");
         }
-        else {
+        else if(BirthDate.MonthNumber == CurrentDate.Cmonth){
+            console.log("month equal")
             if(BirthDate.DayNumber > CurrentDate.Cday){
                 SetError(Year, "Must be in the past");
             }
             else{
-                sd3 = SetSuccess(Year);
+               
+                sd1=SetSuccess(Day);
+                calculateAge(BirthDate, CurrentDate);
             }
-            sd2 = SetSuccess(Month);            
+
+        }
+        else {
+            console.log("month less")
+            
+            if(BirthDate.DayNumber > CurrentDate.Cday){
+                sd1=SetSuccess(Day);
+                calculateAge(BirthDate, CurrentDate);
+                
+            }
+            else{
+                sd3 = SetSuccess(Year);
+                calculateAge(BirthDate, CurrentDate);
+            }
+            sd2 = SetSuccess(Month);  
+            calculateAge(BirthDate, CurrentDate);          
         }
     }
     else {
         sd3 = SetSuccess(Year);
+        calculateAge(BirthDate, CurrentDate);
     }
+
 
     if ((sd1 != 0) && (sd2 != 0) && (sd3 != 0)) {
         calculateAge(BirthDate, CurrentDate);
