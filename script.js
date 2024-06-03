@@ -201,9 +201,7 @@ function validateInputs() {
         YearNumber: parseInt(Year.value)
     }
     
-    let Bdate = `${BirthDate.MonthNumber}/${BirthDate.DayNumber}/${BirthDate.YearNumber}`;
-    let Cdate = date.toLocaleDateString();
-    
+        
     if (DayValue === "") {
         SetError(Day, "This field is required");
     }
@@ -211,7 +209,7 @@ function validateInputs() {
         SetError(Day, "Must be a valid day");
         console.log("false")
     }
-    else if(((BirthDate.DayNumber===30) || (BirthDate.DayNumber===31))&& (BirthDate.DayNumber!==SetDay(BirthDate.MonthNumber,BirthDate.YearNumber))){
+    else if((BirthDate.DayNumber === 31) && (BirthDate.DayNumber !== SetDay(BirthDate.MonthNumber, BirthDate.YearNumber))){
         SetError(Day, "Must be a valid date");
     }
     else {
@@ -233,32 +231,41 @@ function validateInputs() {
     else if (BirthDate.YearNumber > CurrentDate.Cyear) {
         SetError(Year, "Must be in the past");
     }
-     else {
-        sd3 = SetSuccess(Year);
-    }
-
-
-    if (Bdate > Cdate) {
-        SetError(Year, "Must be in the past");
-    }
-
-    else {
-        if (BirthDate.MonthNumber == CurrentDate.Cmonth) {
-
-            if (BirthDate.DayNumber > CurrentDate.Cday) {
-                console.log("day greater")
+     else if(BirthDate.YearNumber == CurrentDate.Cyear){
+        if(BirthDate.MonthNumber > CurrentDate.Cmonth){
+            SetError(Year, "Must be in the past");
+        }
+        else if(BirthDate.MonthNumber == CurrentDate.Cmonth){
+            console.log("month equal")
+            if(BirthDate.DayNumber > CurrentDate.Cday){
                 SetError(Year, "Must be in the past");
             }
-
-            else {
+            else{
+               
+                sd1=SetSuccess(Day);
                 calculateAge(BirthDate, CurrentDate);
             }
 
         }
-        else if ((BirthDate.MonthNumber < CurrentDate.Cmonth)) {
-            calculateAge(BirthDate, CurrentDate);
-
+        else {
+            console.log("month less")
+            
+            if(BirthDate.DayNumber > CurrentDate.Cday){
+                sd1=SetSuccess(Day);
+                calculateAge(BirthDate, CurrentDate);
+                
+            }
+            else{
+                sd3 = SetSuccess(Year);
+                calculateAge(BirthDate, CurrentDate);
+            }
+            sd2 = SetSuccess(Month);  
+            calculateAge(BirthDate, CurrentDate);          
         }
+    }
+    else {
+        sd3 = SetSuccess(Year);
+        calculateAge(BirthDate, CurrentDate);
     }
 
 
