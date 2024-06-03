@@ -200,8 +200,10 @@ function validateInputs() {
         MonthNumber: parseInt(Month.value),
         YearNumber: parseInt(Year.value)
     }
-
-
+    
+    let Bdate = `${BirthDate.MonthNumber}/${BirthDate.DayNumber}/${BirthDate.YearNumber}`;
+    let Cdate = date.toLocaleDateString();
+    
     if (DayValue === "") {
         SetError(Day, "This field is required");
     }
