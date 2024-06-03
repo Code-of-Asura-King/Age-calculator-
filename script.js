@@ -170,8 +170,6 @@ function calculateAge(BirthDate, CurrentDate) {
             Age.years = Cyear - Byear;
         }
         else {
-            Cday += SetDay(Cmonth, Cyear);
-            Cmonth--;
             Age.days = Cday - Bday;
             Age.months = Cmonth - Bmonth;
             Age.years = Cyear - Byear;
@@ -229,6 +227,20 @@ function validateInputs() {
     }
     else if (BirthDate.YearNumber > CurrentDate.Cyear) {
         SetError(Year, "Must be in the past");
+    }
+    else if(BirthDate.YearNumber == CurrentDate.Cyear){
+        if(BirthDate.MonthNumber > CurrentDate.Cmonth){
+            SetError(Year, "Must be in the past");
+        }
+        else {
+            if(BirthDate.DayNumber > CurrentDate.Cday){
+                SetError(Year, "Must be in the past");
+            }
+            else{
+                sd3 = SetSuccess(Year);
+            }
+            sd2 = SetSuccess(Month);            
+        }
     }
     else {
         sd3 = SetSuccess(Year);
