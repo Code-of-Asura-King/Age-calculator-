@@ -10,7 +10,7 @@ const date = new Date();
 
 const CurrentDate = {
     Cday: date.getDate(),
-    Cmonth: date.getMonth(),
+    Cmonth: date.getMonth() + 1,
     Cyear: date.getFullYear()
 
 }
