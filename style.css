@@ -1,0 +1,203 @@
+body {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    column-gap: 20px;
+}
+
+.border {
+    border: 2px solid black;
+}
+
+.container {
+    width: 40%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    border-bottom-right-radius: 30%;
+}
+
+.input {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 25px;
+    border-bottom: 1px solid;
+}
+
+.input-box {
+    width: 30%;
+    color: rgb(23, 26, 197);
+}
+
+input[type=number] {
+    width: 60%;
+    font-size: 1.5rem !important;
+    font-weight: bolder;
+    padding-left: 10px;
+}
+
+input[type=number]:focus {
+    border: 3px solid hsl(259, 100%, 65%);
+    cursor: pointer;
+}
+
+input[type=number]:hover {
+    border: 3px solid hsl(259, 100%, 65%);
+    cursor: pointer;
+}
+
+label {
+    display: flow;
+    width: -webkit-fill-available;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: small;
+    font-weight: bold;
+    color: hsl(0, 1%, 44%);
+}
+
+.input-subbox {
+    width: -webkit-fill-available;
+    height: 3.5rem;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+::-webkit-input-placeholder {
+    font-size: 1.5rem;
+    padding-left: 5px;
+    font-weight: bolder;
+}
+
+.error {
+    margin-top: 5px;
+    font-style: italic;
+    color: red;
+    font-size: 10px;
+}
+
+.red {
+    color: red;
+}
+
+.border-red {
+    border-color: red;
+}
+
+.arrow {
+    background-color: hsl(259, 100%, 65%);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    padding: 15px;
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    top: 36%;
+    left: 65%;
+}
+
+.arrow:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+.display {
+    padding-top: 15px;
+}
+
+.bold,
+.dash-bold {
+    font-size: 3.5rem;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.dash-bold {
+    color: hsl(259, 100%, 65%);
+}
+
+.attribution{    
+    font-size: 10px;
+    font-family: "Inter", sans-serif;
+
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 70vw;
+    }
+
+    .input {
+        width: 80%;
+        flex-direction: row;
+        column-gap: 20px;
+    }
+
+    .input-box {
+        width: 50%;
+    }
+
+    .arrow {
+        top: 39%;
+        left: 75%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        width: 70vw;
+
+    }
+
+    .input {
+        width: -webkit-fill-available;
+        flex-direction: row;
+        column-gap: 20px;
+        height: 6.5rem;
+        padding: 5px;
+        padding-bottom: 20%;
+        margin-bottom: 20px;
+    }
+
+    .input-box {
+        width: 29%;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 1rem;
+        padding-left: 5px;
+        font-weight: bolder;
+    
+    }
+
+    .display {
+        height: fit-content;
+        margin-top: 40px;
+    }
+
+    .bold,
+    .dash-bold {
+        font-size: 2.5rem;
+        font-style: italic;
+        font-weight: bolder;
+    }
+
+    .arrow {
+        top: 42%;
+        left: 38%;
+    }
+
+    input[type=number] {
+        width: 80%;
+        font-size: 1.0rem !important;
+    }
+
+}

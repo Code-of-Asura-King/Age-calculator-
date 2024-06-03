@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age-Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+</head>
+
+<body>
+    <div class="container ">
+        <div class="input">
+            <div class="day input-box ">
+                <label for="Day">DAY</label>
+                
+                <input type="number" name="Day" class="input-subbox" id="Day" maxlength="2" placeholder="DD">
+                <p class="error"></p>
+            </div>
+            <div class="month input-box">
+                <label for="Month">MONTH</label>
+                
+                <input type="number" name="Month" class="input-subbox" id="Month" maxlength="2" placeholder="MM">
+                <p class="error"></p>
+            </div>
+            <div class="year input-box">
+                <label for="Year">YEAR</label>
+                
+                <input type="number" name="Year" class="input-subbox" id="Year" maxlength="4" placeholder="YYYY">
+                <p class="error"></p>
+            </div>
+        
+        <button class="arrow"><img src="icon-arrow.svg" alt="arrow"></button>
+    </div>
+        <div class="display">
+            <div class="Display">
+                <span class="dash-bold" id="year">--</span>
+                <span class="bold">years</span>
+            </div>
+            <div class="Display">
+                <span class="dash-bold" id="month">--</span>
+                <span class="bold">months</span>
+            </div>
+            <div class="Display">
+                <span class="dash-bold" id="day">--</span>
+                <span class="bold">days</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="https://github.com/Code-of-Asura-King">Asura King</a>.
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+
+</html>
