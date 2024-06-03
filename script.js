@@ -145,7 +145,7 @@ function calculateAge(BirthDate, CurrentDate) {
     let Byear = BirthDate.YearNumber;
    
     if (Cday < Bday) {
-        if (Cmonth < Bmonth) {
+        if (Cmonth <= Bmonth) {
             Cyear--;
             Cday += SetDay(Cmonth, Cyear);
             Cmonth--;
