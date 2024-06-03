@@ -231,41 +231,32 @@ function validateInputs() {
     else if (BirthDate.YearNumber > CurrentDate.Cyear) {
         SetError(Year, "Must be in the past");
     }
-     else if(BirthDate.YearNumber == CurrentDate.Cyear){
-        if(BirthDate.MonthNumber > CurrentDate.Cmonth){
-            SetError(Year, "Must be in the past");
-        }
-        else if(BirthDate.MonthNumber == CurrentDate.Cmonth){
-            console.log("month equal")
-            if(BirthDate.DayNumber > CurrentDate.Cday){
+     else {
+        sd3 = SetSuccess(Year);
+    }
+
+
+    if (Bdate > Cdate) {
+        SetError(Year, "Must be in the past");
+    }
+
+    else {
+        if (BirthDate.MonthNumber == CurrentDate.Cmonth) {
+
+            if (BirthDate.DayNumber > CurrentDate.Cday) {
+                console.log("day greater")
                 SetError(Year, "Must be in the past");
             }
-            else{
-               
-                sd1=SetSuccess(Day);
+
+            else {
                 calculateAge(BirthDate, CurrentDate);
             }
 
         }
-        else {
-            console.log("month less")
-            
-            if(BirthDate.DayNumber > CurrentDate.Cday){
-                sd1=SetSuccess(Day);
-                calculateAge(BirthDate, CurrentDate);
-                
-            }
-            else{
-                sd3 = SetSuccess(Year);
-                calculateAge(BirthDate, CurrentDate);
-            }
-            sd2 = SetSuccess(Month);  
-            calculateAge(BirthDate, CurrentDate);          
+        else if ((BirthDate.MonthNumber < CurrentDate.Cmonth)) {
+            calculateAge(BirthDate, CurrentDate);
+
         }
-    }
-    else {
-        sd3 = SetSuccess(Year);
-        calculateAge(BirthDate, CurrentDate);
     }
 
 
